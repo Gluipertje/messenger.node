@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Huts</title>
+</head>
+<body>
+    <ul class="messages">
+        <% for(var i=0; i<messages.length; i++) {%>
+        <li class="message">
+            <span><%= messages[i].name %></span><br>
+            <span><%= messages[i].body %></span>
+        </li><br>
+        <% } %>
+    </ul>
+
+    <form action="/messages" method="POST">
+        <input type="text" placeholder="name" name="name">
+        <input type="text" placeholder="body" name="body">
+        <button type="submit">Submit</button>
+      </form>
+</body>
+</html>
