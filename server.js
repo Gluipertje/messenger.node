@@ -4,14 +4,17 @@ const MongoClient = require('mongodb').MongoClient // To import Mongo into the s
 const app = express();
 app.set('view engine', 'ejs')
 var db
+var port
+port = 8008
 
 app.use(bodyParser.urlencoded({extended: true}))
 
+//MongoClient.connect("mongodb://localhost:27017/MyDb", function (err, db)
 MongoClient.connect('mongodb+srv://messenger-user_1:KhmRRZIE12SqMDto@node-messager-osyvz.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => { // Connect to your MongoDB
     if (err) return console.log(err)
         db = client.db('node-messenger') // Defines database name
-        app.listen(3000, () => { // Start server on port 3000
-            console.log('Server listening on port 3000!')
+        app.listen(port, () => { // Start server on port 3000
+            console.log('Server listening on port %s', port)
     })
   })
 
